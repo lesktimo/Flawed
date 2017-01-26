@@ -1,18 +1,27 @@
 package sec.project.controller;
 
+import java.security.Principal;
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class DefaultController {
 
+    @Autowired
+    private HttpSession sess;
+            
     @RequestMapping("/")
     public String defaultMapping() {
         return "index";
     }
 
-    @RequestMapping("/info")
-    public String infoMapping() {
+    @RequestMapping("/{session}/info")
+    public String infoMapping(@PathVariable String session) {
+        
         return "info";
     }
 
