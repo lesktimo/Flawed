@@ -21,11 +21,6 @@ public class DefaultController {
         return "login";
     }
 
-    @RequestMapping("/signup")
-    public String signupMapping() {
-        return "signup";
-    }
-
     @RequestMapping("/nocando")
     public String nocandoMapping() {
         return "nocando";

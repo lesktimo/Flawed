@@ -12,19 +12,21 @@
             <div class="register-photo">
                 <div class="form-container">
                     <div class="image-holder"></div>
-                    <form method="post">
+                    <form th:action="@{/signup}" th:object="${account}" method="POST">
                         <h2 class="text-center"><strong>Create</strong> an account.</h2>
                         <div class="form-group">
-                            <input type="text" name="username" placeholder="Username" class="form-control" />
+                            <input type="text" name="username" th:field="*{username}" placeholder="Username" class="form-control" />
+                            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username errors</p>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" placeholder="Password" class="form-control" />
+                            <input type="password" name="password" th:field="*{password}" placeholder="Password" class="form-control" />
+                            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password errors</p>
                         </div>
                         <div class="form-group">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
-                        </div><a href="login.html" class="already">You already have an account? Login here.</a></form>
+                        </div><a href="login" class="already">You already have an account? Login here.</a></form>
                 </div>
             </div>
         </div>
