@@ -22,7 +22,7 @@ public class DefaultController {
         return "redirect:/" + sess.getId() + "/info";
     }
 
-    @RequestMapping("/{session}/info")
+    @RequestMapping("/{secret}/info")
     public String infoMappingSession(@PathVariable String secret) {
         String sweetSweetSessionId = secret;
         return "info";
