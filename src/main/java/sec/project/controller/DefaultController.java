@@ -11,11 +11,6 @@ public class DefaultController {
         return "index";
     }
 
-    @RequestMapping("/admin")
-    public String adminMapping() {
-        return "admin";
-    }
-
     @RequestMapping("/info")
     public String infoMapping() {
         return "info";

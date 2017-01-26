@@ -1,35 +1,37 @@
 package sec.project.service;
 
+import java.net.URISyntaxException;
+import java.sql.SQLException;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sec.project.db.Database;
 import sec.project.domain.Account;
-import sec.project.repository.AccountRepo;
 
 @Service
 public class AccountService {
 
     @Autowired
-    private AccountRepo accRepo;
+    private Database db;
 
     @PostConstruct
-    public void init() {
-        if (accRepo.findByUsername("testi") == null) {
+    public void init() throws SQLException, URISyntaxException {
+        if (db.loadUser("testi") == null) {
             Account acc = new Account();
             acc.setUsername("testi");
             acc.setPassword("testi");
-            accRepo.save(acc);
+            db.saveUser(acc.getUsername(), acc.getPassword());
         }
     }
 
-    public void save(Account acc) {
+    public void save(Account acc) throws SQLException, URISyntaxException {
         acc.setUsername(acc.getUsername());
         acc.setPassword(acc.getPassword());
-        accRepo.save(acc);
+        db.saveUser(acc.getUsername(), acc.getPassword());
     }
 
-    public Account findByUsername(String username) {
-        return accRepo.findByUsername(username);
+    public Account findByUsername(String username) throws SQLException, URISyntaxException {
+        return db.loadUser(username);
     }
 
 }

@@ -37,13 +37,17 @@
                         </li>
                         <li role="presentation"><a href="admin">admin panel </a></li>
                     </ul>
-                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="login.html">Log In</a> <a class="btn btn-default action-button" role="button" href="signup">Sign Up</a></p>
+                    <p class="navbar-text navbar-right actions">
+                        <a sec:authorize="isAnonymous()" class="navbar-link login" th:href="login">Log In</a>
+                        <a sec:authorize="isAuthenticated()" class="navbar-link login" th:href="logout">Log Out</a>
+                        <a sec:authorize="isAnonymous()" class="btn btn-default action-button" role="button" th:href="signup">Sign Up</a>
+                    </p>
                 </div>
             </div>
         </nav>
-        
+
         <div th:include="this :: content"/>
-        
+
         <div class="footer-dark">
             <footer>
                 <div class="container">
