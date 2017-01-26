@@ -3,6 +3,7 @@ package sec.project.domain;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
+
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
