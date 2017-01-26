@@ -1,7 +1,6 @@
 package sec.project.controller;
 
 import javax.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,16 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DefaultController {
 
-    @Autowired
-    private HttpSession sess;
-
     @RequestMapping("/")
     public String defaultMapping() {
         return "index";
     }
 
     @RequestMapping("/info")
-    public String infoMapping() {
+    public String infoMapping(HttpSession sess) {
         return "redirect:/" + sess.getId() + "/info";
     }
 
