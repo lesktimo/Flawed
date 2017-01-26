@@ -2,6 +2,7 @@ package sec.project.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,11 @@ public class AdminController {
     @Profile("heroku")
     @RequestMapping("/admin")
     public String adminMappingHeroku(Model model) throws URISyntaxException {
-        List<Account> accounts = repo.findAll();
+        List<Account> accounts = new ArrayList<>();
+        if (!repo.findAll().isEmpty()) {
+            accounts = repo.findAll();
+        }
         model.addAttribute("account", accounts);
-
         return "admin";
     }
 }
