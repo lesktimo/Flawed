@@ -21,19 +21,7 @@ public class AdminController {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
         model.addAttribute("url", dbUrl);
-        
+
         return "admin";
     }
-    
-    
-//    @RequestMapping("/admin")
-//    public String adminMappingLocal(Model model) throws URISyntaxException {
-//
-//        model.addAttribute("username", "testi");
-//        model.addAttribute("password", "testi");
-//        model.addAttribute("url", "db");
-//        
-//        return "admin";
-//    }
-
 }
