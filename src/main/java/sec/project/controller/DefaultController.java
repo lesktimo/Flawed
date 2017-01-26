@@ -23,8 +23,8 @@ public class DefaultController {
     }
 
     @RequestMapping("/{session}/info")
-    public String infoMappingSession(@PathVariable String session) {
-        String sweetSweetSessionId = session;
+    public String infoMappingSession(@PathVariable String secret) {
+        String sweetSweetSessionId = secret;
         return "info";
     }
 

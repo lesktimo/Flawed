@@ -18,20 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests()
-                .antMatchers(
-                        "/","/signup/**","/resources/**", "/css/**", "/img/**", "/fonts/**", "/js/**", "/nocando")
-                .permitAll()
-                //kaikki muut sivut vaativat autentikaation
-                .anyRequest().authenticated()
-                //login-sivun määreet
-                .and()
-                .formLogin().loginPage("/login")
-                .permitAll()
-                //logout määreet
-                .and()
-                .logout().permitAll()
-                .logoutSuccessUrl("/login?logout");
+        http.authorizeRequests().antMatchers("/", "/signup/**", "/resources/**", "/css/**", "/img/**", "/fonts/**", "/js/**", "/nocando").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout().permitAll().logoutSuccessUrl("/login?logout");
     }
 
     @Autowired
