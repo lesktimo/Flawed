@@ -14,9 +14,9 @@
                     <div class="intro">
                         <h2 class="text-center">Admin panel</h2>
                         <p class="text-center">I bet you should not be here -- anyhow -- here you can access our userbase.</p>
-                        <ul th:each="account: ${accounts}">
-                            <li>
-                                <p  th:text="${account.username}">username</p>
+                        <ul>
+                            <li th:each="account: ${accounts}">
+                                <p th:text="${account.username}">username</p>
                                 <p th:text="${account.password}">password</p>
                             </li>
                         </ul>
