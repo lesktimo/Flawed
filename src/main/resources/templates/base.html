@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:fragment="base">
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>flawed</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700"/>
+        <link rel="stylesheet" href="/fonts/ionicons.min.css"/>
+        <link rel="stylesheet" href="/css/Carousel-Hero.css"/>
+        <link rel="stylesheet" href="/css/Footer-Dark.css"/>
+        <link rel="stylesheet" href="/css/Highlight-Clean.css"/>
+        <link rel="stylesheet" href="/css/Login-Form-Clean.css"/>
+        <link rel="stylesheet" href="/css/nav.css"/>
+        <link rel="stylesheet" href="/css/Projects-Horizontal.css"/>
+        <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css"/>
+        <link rel="stylesheet" href="/css/styles.css"/>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top navigation-clean-button">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="https://github.com/lesktimo/Flawed"><span><img src="img/logo.png" />Flawed </span> </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav nav-right">
+                        <li role="presentation"><a href="/">home </a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">About <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><a href="info">The flaws</a></li>
+                                <li role="presentation"><a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">OWASP Top 10 List</a></li>
+                                <li role="presentation"><a href="https://github.com/lesktimo/Flawed">Flawed GitRepo</a></li>
+                            </ul>
+                        </li>
+                        <li role="presentation"><a href="admin">admin panel </a></li>
+                    </ul>
+                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="login.html">Log In</a> <a class="btn btn-default action-button" role="button" href="signup">Sign Up</a></p>
+                </div>
+            </div>
+        </nav>
+        
+        <div th:include="this :: content"/>
+        
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-push-6 item text">
+                            <h3>Flawed</h3>
+                            <p>There are multiple flaws implemented into the site. All of the flaws are picked from the Top 10 Security flaws list made by OWASP.</p>
+                        </div>
+                        <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                            <h3>Admins</h3>
+                            <ul>
+                                <li><a href="admin">Admin panel</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                            <h3>About</h3>
+                            <ul>
+                                <li><a href="info">The flaws</a></li>
+                                <li><a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">OWASP Top 10 List</a></li>
+                                <li><a href="https://github.com/lesktimo/Flawed">Flawed GitRepo</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="copyright">lesktimo © 2017</p>
+                </div>
+            </footer>
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:include="base :: base">
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>flawed</title>
+    </head>
+
+    <body>
+        <div th:fragment="content">
+            <div class="projects-horizontal">
+                <div class="container">
+                    <div class="intro">
+                        <h2 class="text-center">The flaws</h2>
+                        <p class="text-center">Here are some info about our fla.. I mean features!</p>
+                    </div>
+                    <div class="row projects">
+                        <div class="col-sm-6 item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <a href="#"><img src="/img/desk.jpg" class="img-responsive" /></a>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="name">SQL Injection in forms!</h3>
+                                    <p class="description">You can inject malicious SQL code into the login and sign up forms.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <a href="#"><img src="/img/building.jpg" class="img-responsive" /></a>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="name">Your passwords are not encrypted!</h3>
+                                    <p class="description">Well, erm, like someone could access that data, right? Why hide it!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <a href="#"><img src="/img/loft.jpg" class="img-responsive" /></a>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="name">You can access our databases and other people&#39;s credentials -- if you can find them!</h3>
+                                    <p class="description">It&#39;s never been easier to check the data you want.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <a href="#"><img src="/img/minibus.jpeg" class="img-responsive" /></a>
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="name">Someone left the admin panel open!</h3>
+                                    <p class="description">Well, who wouldn&#39;t want to be an admin?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+
+</html>
