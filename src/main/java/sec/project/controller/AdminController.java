@@ -18,4 +18,10 @@ public class AdminController {
         model.addAttribute("accounts", repo.findAll());
         return "admin";
     }
+
+    @RequestMapping("/dbresetfromadminbutton")
+    public String resetDb() {
+        repo.deleteAll();
+        return "redirect:/admin";
+    }
 }
