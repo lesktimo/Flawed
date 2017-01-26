@@ -2,6 +2,9 @@ package sec.project.domain;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
+import org.hibernate.annotations.Loader;
+import org.hibernate.annotations.NamedNativeQuery;
+import org.hibernate.annotations.SQLInsert;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
