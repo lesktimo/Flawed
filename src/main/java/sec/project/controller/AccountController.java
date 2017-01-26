@@ -32,17 +32,15 @@ public class AccountController {
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signupGet(Model model) {
         model.addAttribute("account", new Account());
-
-        return "register";
+        return "signup";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signupPost(@Valid @ModelAttribute("account") Account account, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "signup";
         }
         service.save(account);
-
         return "redirect:/login";
     }
 }
