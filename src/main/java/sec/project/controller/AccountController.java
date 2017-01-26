@@ -1,5 +1,7 @@
 package sec.project.controller;
 
+import java.security.Principal;
+import javax.persistence.EntityManagerFactory;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,17 @@ public class AccountController {
 
     @Autowired
     private AccountService service;
+
+    @Autowired
+    private Principal p;
+
+    @Autowired
+    private EntityManagerFactory e;
+
+    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    public String getAccountAndRedirect(Model model) {
+        return "redirect:/account/" + e.getPersistenceUnitUtil().getIdentifier(repo.findByUsername(p.getName())).toString();
+    }
 
     @RequestMapping(value = "/account/{id}", method = RequestMethod.GET)
     public String getAccount(@PathVariable Long id, Model model) {
