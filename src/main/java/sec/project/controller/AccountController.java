@@ -4,6 +4,7 @@ import java.security.Principal;
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,12 +25,9 @@ public class AccountController {
     @Autowired
     private AccountService service;
 
-    @Autowired
-    private Principal p;
-
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public String getAccountAndRedirect() {
-        return "redirect:/account/" + repo.findByUsername(p.getName()).getId();
+        return "redirect:/account/" + repo.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
     }
 
     @RequestMapping(value = "/account/{id}", method = RequestMethod.GET)
