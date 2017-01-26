@@ -27,12 +27,9 @@ public class AccountController {
     @Autowired
     private Principal p;
 
-    @Autowired
-    private EntityManagerFactory e;
-
     @RequestMapping(value = "/account", method = RequestMethod.GET)
-    public String getAccountAndRedirect(Model model) {
-        return "redirect:/account/" + e.getPersistenceUnitUtil().getIdentifier(repo.findByUsername(p.getName())).toString();
+    public String getAccountAndRedirect() {
+        return "redirect:/account/" + repo.findByUsername(p.getName()).getId();
     }
 
     @RequestMapping(value = "/account/{id}", method = RequestMethod.GET)

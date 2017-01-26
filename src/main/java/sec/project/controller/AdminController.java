@@ -14,7 +14,7 @@ public class AdminController {
     private AccountRepo repo;
 
     @RequestMapping("/admin")
-    public String adminMappingHeroku(Model model) throws URISyntaxException {
+    public String adminMapping(Model model) throws URISyntaxException {
         model.addAttribute("accounts", repo.findAll());
         return "admin";
     }

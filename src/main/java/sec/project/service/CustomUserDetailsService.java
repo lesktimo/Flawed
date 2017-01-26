@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.UUID;
 import static java.util.UUID.randomUUID;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,6 @@ import sec.project.repository.AccountRepo;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-
-    @Autowired
-    private HttpSession sess;
 
     @Autowired
     private AccountRepo accRepo;
@@ -40,20 +38,5 @@ public class CustomUserDetailsService implements UserDetailsService {
                 true,
                 true,
                 Arrays.asList(new SimpleGrantedAuthority("USER")));
-    }
-
-    @Bean
-    public Cookie cookie() {
-        String name = "flawedCookie";
-        UUID value = randomUUID();
-        Boolean useSecureCookie = new Boolean(false);
-        int exp = 60 * 60 * 24;
-        String cookiePath = "/";
-        Cookie c = new Cookie(name, value.toString());
-        c.setSecure(useSecureCookie);
-        c.setMaxAge(exp);
-        c.setPath(cookiePath);
-        sess.setAttribute("cookie", c);
-        return c;
     }
 }
