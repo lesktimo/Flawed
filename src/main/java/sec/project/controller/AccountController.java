@@ -12,16 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sec.project.domain.Account;
 import sec.project.repository.AccountRepo;
-import sec.project.service.AccountService;
 
 @Controller
 public class AccountController {
 
-    @Autowired
+    @Autowired(required = true)
     private AccountRepo repo;
-
-    @Autowired
-    private AccountService service;
 
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public String getAccountAndRedirect() {
@@ -46,7 +42,7 @@ public class AccountController {
         if (bindingResult.hasErrors()) {
             return "signup";
         }
-        service.save(account);
+        repo.save(account);
         return "redirect:/login";
     }
 }

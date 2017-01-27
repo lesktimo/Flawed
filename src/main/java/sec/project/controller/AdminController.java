@@ -10,7 +10,7 @@ import sec.project.repository.AccountRepo;
 @Controller
 public class AdminController {
 
-    @Autowired
+    @Autowired(required = true)
     private AccountRepo repo;
 
     @RequestMapping("/admin")

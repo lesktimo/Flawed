@@ -14,7 +14,7 @@ import sec.project.repository.AccountRepo;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    @Autowired
+    @Autowired(required = true)
     private AccountRepo accRepo;
 
     @Override
