@@ -9,24 +9,24 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import sec.project.domain.Account;
-import sec.project.repository.AccountRepo;
+import sec.project.repository.AccountRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    @Autowired(required = true)
-    private AccountRepo accRepo;
+    @Autowired
+    private AccountRepository repo;
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account account = accRepo.findByUsername(username);
-        if (account == null) {
+        Account acc = repo.findByUsername(username);
+        if (acc == null) {
             throw new UsernameNotFoundException("No such user: " + username);
         }
         return new org.springframework.security.core.userdetails.User(
-                account.getUsername(),
-                account.getPassword(),
+                acc.getUsername(),
+                acc.getPassword(),
                 true,
                 true,
                 true,

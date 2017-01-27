@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sec.project.domain.Account;
-import sec.project.repository.AccountRepo;
+import sec.project.repository.AccountRepository;
 
 @Controller
 public class AccountController {
 
-    @Autowired(required = true)
-    private AccountRepo repo;
+    @Autowired
+    public AccountRepository repo;
 
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public String getAccountAndRedirect() {
