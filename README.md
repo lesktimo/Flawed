@@ -4,7 +4,7 @@
 
 * [The App](flawed.herokuapp.com)
 
-DISCLAIMER: Do not use your own credentials if you register an account!
+####DISCLAIMER: Do not use your own credentials if you register an account!
 
 ###Introduction
 
