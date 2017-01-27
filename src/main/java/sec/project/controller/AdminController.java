@@ -1,6 +1,5 @@
 package sec.project.controller;
 
-import java.net.URISyntaxException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +13,7 @@ public class AdminController {
     private AccountRepository repo;
 
     @RequestMapping("/admin")
-    public String adminMapping(Model model) throws URISyntaxException {
+    public String adminMapping(Model model) {
         model.addAttribute("accounts", repo.findAll());
         return "admin";
     }
