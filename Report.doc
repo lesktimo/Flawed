@@ -1,0 +1,50 @@
+Cyber Security Base - Course Project 1
+
+	Flawed
+
+* flawed.herokuapp.com
+
+Introduction
+
+	This application is a badly designed and build web app, which contains many security flaws. Those flaws are  quite common, and the aim of this projct is to show how one can avoid those flaws in one's own work. The flaws are from the OWASP Top 10 2013 list. If you visit the herokuapp, please, use the site at your own risk and do NOT register with credentials you use on any other application. The project is made using Java, Spring, postgreSQL (Heroku) / h2 (locally), and Bootstrap for the juicy looks.
+
+The implemented flaws:
+
+	1. Insecure Direct Object References
+	2. Sensitive Data Exposure
+	3. Missing Function Level Access Control
+	4. Using Components with Known Vunlerabilities
+	5. Broken Authentication and Session Management
+	6. Cross-Site Request Forgery
+	7. Security Misconfiguration
+
+Finding, indentifying and fixing the flaws:
+
+	1. Insecure Direct Object References:
+
+When viewing your account page "/account/ID" you can forge the ID to gain access to other accounts' pages.
+One should not use direct reference, which leads to private data. This can be fixed with HTTP sessions using indirect object reference inside the session and directing authenticated user to his own page.
+
+	2. Sensitive Data Exposure:
+
+When viewing your own account page or the admin panel, you can see users' credentials in plain text format. One should not have unauthorized access to other users' data and that data should be encrypted. In this case using newest version of BCrypt -- which is provided in the Spring framework -- and encrypting the passwords. The admin panel is listing accounts just for conceptual purposes instead of giving access to Amazon's database provided by Heroku.
+
+	3. Missing Function Level Access Control:
+
+Even though many of the pages require user to login and the admin panel is "hidden" in the UI, one can find it from the source code, and once found can manually add /admin into the URL and gain access to the admin panel. This could be fixed in the AdminController by @Secured("ROLE_ADMIN") annotation, which would ensure that only authorized personnels could access administrative pages when a request is sent to the server.
+
+	4. Using Components with Known Vulnerabilities
+
+This web application is running on an older version of Spring-boot -- 1.2.7 to be more precise -- which means there are plethora of bugs. One of them is a SPEL injection with a whitelabel error page. Spring Security is also version 3.2.7, which means there's a XSS and CSRF vulnerabilities, an attacker is allowed to read arbitrary files, and cause denial of service. An easy fix is to upgrade all these components in the pom.xml file. One should always keep his components upgraded!
+
+	5. Broken Authentication and Session Management
+
+In the /info page, the current session ID is shown in the URL, which means that an attacker could hijack the session. Even this is implemented in a non-necessary way -- because of time consuming reasons -- it's there because of educational purposes. This could be fixed by using @Scope annotation, hiding the session, and defining the data shown to the current session belongs to the authenticated user.
+
+	6. Cross-Site Request Forgery
+
+CSRF is enabled because of using old components and misconfiguration. An attacker could embed malicious script into an image or iframe in his/hers site and force other users to give their session info from this site to the attacker and to make them to do his/hers bidding, for example transfering funds to the attackers bank account. One could fix this by upgrading all old components and disabling CSRF in the WebSecurityConfiguration class.
+
+	7. Security MisConfiguration
+
+Every other flaw implemented to the project are caused by security misconfiguration. So fixing the flaws above would nullify this flaw. Even though modern frameworks implement many of the security features, the developer should make sure that everything is really secure.
