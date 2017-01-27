@@ -36,7 +36,7 @@
                             </ul>
                         </li>
                         <li role="presentation"><a th:href="@{/account}">my account </a></li>
-                        <li role="presentation"><a th:href="@{/admin}">admin panel </a></li>
+                        <li sec:authorize="hasRole('ROLE_admin')" role="presentation"><a th:href="@{/admin}">admin panel </a></li>
                     </ul>
                     <p class="navbar-text navbar-right actions">
                         <a sec:authorize="isAnonymous()" class="navbar-link login" th:href="login">Log In</a>
@@ -57,7 +57,7 @@
                             <h3>Flawed</h3>
                             <p>DISCLAIMER: This page is built for educational purposes. Don't use your real credentials. There are multiple flaws implemented into the site. All of the flaws are picked from the Top 10 Security flaws list by OWASP.</p>
                         </div>
-                        <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                        <div class="col-md-3 col-md-pull-6 col-sm-4 item" sec:authorize="hasRole('ROLE_admin')">
                             <h3>Admins</h3>
                             <ul>
                                 <li><a href="@{/admin}">Admin panel</a></li>

@@ -15,8 +15,12 @@
                         <h2 class="text-center">Admin panel</h2>
                         <p class="text-center">I bet you should not be here -- anyhow -- here you can access our userbase.</p>
                         <div th:each="account: ${accounts}">
-                            <p th:text="${account.username}">username</p>
-                            <p th:text="${account.password}">password</p>
+                            <div>
+                                <p>Username:</p>
+                                <p th:text="${account.username}">username</p>
+                                <p>Password:</p>
+                                <p th:text="${account.password}">password</p>
+                            </div>
                         </div>
                     </div>
                     <!--<div class="buttons"><button class="btn btn-primary" th:action="@{/dbresetfromadminbutton}" value="Reset database"/></div>-->
