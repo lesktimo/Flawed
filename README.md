@@ -4,6 +4,8 @@
 
 * [The App](flawed.herokuapp.com)
 
+DISCLAIMER: Do not use your own credentials if you register an account!
+
 ###Introduction
 
 This application is a badly designed and build web app, which contains many security flaws. Those flaws are  quite common, and the aim of this projct is to show how one can avoid those flaws in one's own work.
