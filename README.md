@@ -3,6 +3,7 @@
 ##Flawed
 
 * [The App](flawed.herokuapp.com)
+* [The Report](https://raw.githubusercontent.com/lesktimo/Flawed/master/Report.doc)
 
 ####DISCLAIMER: Do not use your own credentials if you register an account!
 
