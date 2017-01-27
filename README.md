@@ -2,7 +2,7 @@
 
 ##Flawed
 
-*[The App](flawed.herokuapp.com)
+* [The App](flawed.herokuapp.com)
 
 ###Introduction
 
@@ -10,10 +10,10 @@ This application is a badly designed and build web app, which contains many secu
 
 ###The flaws
 
-*Insecure Direct Object References
-*Sensitive Data Exposure
-*Missing Function Level Access Control
-*Using Components with Known Vunlerabilities
-*Broken Authentication and Session Management
-*Cross-Site Request Forgery
-*Security Misconfiguration
+* Insecure Direct Object References
+* Sensitive Data Exposure
+* Missing Function Level Access Control
+* Using Components with Known Vunlerabilities
+* Broken Authentication and Session Management
+* Cross-Site Request Forgery
+* Security Misconfiguration
