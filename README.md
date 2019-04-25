@@ -1,17 +1,17 @@
-#Cyber Security Base - Course Project 1
+# Cyber Security Base - Course Project 1
 
-##Flawed
+## Flawed
 
 * [The App](flawed.herokuapp.com)
 * [The Report](https://raw.githubusercontent.com/lesktimo/Flawed/master/Report.doc)
 
-####DISCLAIMER: Do not use your own credentials if you register an account!
+#### DISCLAIMER: Do not use your own credentials if you register an account!
 
-###Introduction
+### Introduction
 
 This application is a badly designed and build web app, which contains many security flaws. Those flaws are  quite common, and the aim of this projct is to show how one can avoid those flaws in one's own work.
 
-###The flaws
+### The flaws
 
 * Insecure Direct Object References
 * Sensitive Data Exposure
